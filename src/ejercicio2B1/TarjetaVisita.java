@@ -38,5 +38,7 @@ public class TarjetaVisita extends Documento{
 				+ numVisitas + "]";
 	}
 	
-	
+	public void imprimirDocumento() {
+		
+	}
 }
