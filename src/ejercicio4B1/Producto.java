@@ -1,6 +1,6 @@
 package ejercicio4B1;
 
-public class Producto {
+public abstract class Producto {
 
 	private float precioUnitario;
 	private String nombre, id;
@@ -11,6 +11,7 @@ public class Producto {
 		this.nombre = nombre;
 		this.id = id;
 	}
+	
 	public float getPrecioUnitario() {
 		return precioUnitario;
 	}
@@ -35,5 +36,5 @@ public class Producto {
 		return "Producto [precioUnitario=" + precioUnitario + ", nombre=" + nombre + ", id=" + id + "]";
 	}
 	
-	
+	public abstract int getDiasParaCaducar();
 }
