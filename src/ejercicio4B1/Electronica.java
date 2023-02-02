@@ -25,4 +25,8 @@ public class Electronica extends Producto{
 	public int getDiasParaCaducar() {
 		return 0;
 	}
+	
+	public float calcularPrecio() {
+		return super.getPrecioUnitario()*(1+impEspecial);
+	}
 }

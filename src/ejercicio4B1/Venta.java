@@ -24,11 +24,4 @@ public class Venta {
 		return "Venta [ticket=" + Arrays.toString(ticket) + "]";
 	}
 	
-	public void imprimirTicket() {
-		System.out.println("NOMBRE \t\t CANTIDAD \T\T DESCUENTO \T\T TOTAL");
-		for(int i = 0; i < ticket.length;i++) {
-			System.out.println(ticket[i].getP().getNombre() "\t\t" + ticket[i].getCantidad() + "\t\t"
-					+ ticket[i].getP().g); //no sé pillar el descuento si un producto lo tiene
-		}
-	}
 }

@@ -1,6 +1,7 @@
 package ejercicio4B1;
 
-public abstract class Producto {
+public abstract class Producto { //La manera de saber si la clase debe ser abstracta o no es si el enunciado te pide que crees objetos de esta clase
+	// Si lo pide, no puede ser abstracta pues no se puden instanciar objetos abstractos
 
 	private float precioUnitario;
 	private String nombre, id;
@@ -36,5 +37,5 @@ public abstract class Producto {
 		return "Producto [precioUnitario=" + precioUnitario + ", nombre=" + nombre + ", id=" + id + "]";
 	}
 	
-	public abstract int getDiasParaCaducar();
+	public abstract float calcularPrecio();
 }

@@ -2,27 +2,48 @@ package ejercicio4B1;
 
 public class Alimentacion extends Producto{
 
-	private int diasParaCaducar;
+	private int diaCaducidad;
+	private boolean descontado;
 	
 	public Alimentacion(float precioUnitario, String nombre, String id, int diasParaCaducar) {
 		super(precioUnitario, nombre, id);
-		this.diasParaCaducar = diasParaCaducar;
+		this.diaCaducidad = diasParaCaducar;
 	}
 
 	public int getDiasParaCaducar() {
-		return diasParaCaducar;
+		return diaCaducidad;
 	}
 	public void setDiasParaCaducar(int diasParaCaducar) {
-		this.diasParaCaducar = diasParaCaducar;
+		this.diaCaducidad = diasParaCaducar;
 	}
 	@Override
 	public String toString() {
-		return "Alimentacion [diasParaCaducar=" + diasParaCaducar + "]";
+		return "Alimentacion [diasParaCaducar=" + diaCaducidad + "]";
 	}
 	
-	public void comprobarCaducidad(Producto p) {
-		if(p.getDiasParaCaducar() <= 2) { //no sé pillar los días de caducidad ya que sólo los de tipo alimentación tienen eso
-			System.out.println("AVISO: Este producto va a caducar próximamente.");
+	public boolean comprobarCaducidad(int diaFecha) {
+		if(diaCaducidad-diaFecha <= 2) { 
+			descontado = true;
+			return descontado;
+		}else {
+			descontado = false;
+			return descontado;
 		}
 	}
+
+	@Override
+	public float calcularPrecio() {
+		float descuento=0.3f;
+		
+		if(descontado) {
+			return super.getPrecioUnitario()*(1-descuento);
+		}else {
+			return super.getPrecioUnitario();
+		}
+	}
+	
+	public void imprimirAviso(Alimentacion a) {
+		
+	}
+	
 }

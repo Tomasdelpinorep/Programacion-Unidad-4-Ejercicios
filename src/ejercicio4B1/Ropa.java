@@ -22,5 +22,7 @@ public class Ropa extends Producto{
 		return "Ropa [rebaja=" + rebaja + "]";
 	}
 	
-	
+	public float calcularPrecio() {
+		return super.getPrecioUnitario()*(1-rebaja);
+	}
 }
