@@ -29,4 +29,10 @@ public class Electronica extends Producto{
 	public float calcularPrecio() {
 		return super.getPrecioUnitario()*(1+impEspecial);
 	}
+
+	@Override
+	public float calcularDescuento() {
+		return 0;
+	}
+
 }

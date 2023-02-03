@@ -26,8 +26,7 @@ public class LineaDeVenta {
 		return "LineaDeVenta [p=" + p + ", cantidad=" + cantidad + "]";
 	}
 	
-	public float calcularTotal(Producto p) {
-		//Aquí quiero devolver precio*cantidad - descuento pero no sé pillar el descuento ya que no todos los productos
-		//tienen ese atributo
+	public float calcularPrecioProductoTotal(Producto p) {
+		return cantidad * p.calcularPrecio();
 	}
 }

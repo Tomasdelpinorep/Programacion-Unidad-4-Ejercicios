@@ -2,27 +2,27 @@ package ejercicio4B1;
 
 public class Alimentacion extends Producto{
 
-	private int diaCaducidad;
+	private int diasParaCaducar;
 	private boolean descontado;
 	
 	public Alimentacion(float precioUnitario, String nombre, String id, int diasParaCaducar) {
 		super(precioUnitario, nombre, id);
-		this.diaCaducidad = diasParaCaducar;
+		this.diasParaCaducar = diasParaCaducar;
 	}
-
+	
 	public int getDiasParaCaducar() {
-		return diaCaducidad;
+		return diasParaCaducar;
 	}
 	public void setDiasParaCaducar(int diasParaCaducar) {
-		this.diaCaducidad = diasParaCaducar;
+		this.diasParaCaducar = diasParaCaducar;
 	}
 	@Override
 	public String toString() {
-		return "Alimentacion [diasParaCaducar=" + diaCaducidad + "]";
+		return "Alimentacion [diasParaCaducar=" + diasParaCaducar + "]";
 	}
 	
-	public boolean comprobarCaducidad(int diaFecha) {
-		if(diaCaducidad-diaFecha <= 2) { 
+	public boolean comprobarCaducidad() {
+		if(diasParaCaducar <= 2) { 
 			descontado = true;
 			return descontado;
 		}else {
@@ -32,18 +32,30 @@ public class Alimentacion extends Producto{
 	}
 
 	@Override
-	public float calcularPrecio() {
-		float descuento=0.3f;
+	public float calcularDescuento() {
+		float descuentoCaducidad = 0.3f;
 		
-		if(descontado) {
-			return super.getPrecioUnitario()*(1-descuento);
+		if(comprobarCaducidad()) {
+			return descuentoCaducidad;
+		}else {
+			return 0;
+		}
+	}
+	
+	@Override
+	public float calcularPrecio() {
+		
+		if(comprobarCaducidad()) {
+			return super.getPrecioUnitario()*(1-calcularDescuento());
 		}else {
 			return super.getPrecioUnitario();
 		}
 	}
 	
-	public void imprimirAviso(Alimentacion a) {
-		
+	public void imprimirAviso() {
+		if(comprobarCaducidad()) {
+			System.out.println("Este producto está descontando ya que caducará proximamente.");
+		}
 	}
 	
 }

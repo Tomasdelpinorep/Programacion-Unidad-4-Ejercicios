@@ -25,4 +25,10 @@ public class Ropa extends Producto{
 	public float calcularPrecio() {
 		return super.getPrecioUnitario()*(1-rebaja);
 	}
+
+	@Override
+	public float calcularDescuento() {
+		return rebaja;
+	}
+
 }

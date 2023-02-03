@@ -38,4 +38,7 @@ public abstract class Producto { //La manera de saber si la clase debe ser abstr
 	}
 	
 	public abstract float calcularPrecio();
+	
+	public abstract float calcularDescuento();
+	
 }
