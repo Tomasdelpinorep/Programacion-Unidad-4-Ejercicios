@@ -12,9 +12,7 @@ año recibido por parámetro.
 c) En el método main(), crear un array de Publicaciones, con 2 libros y 2 revistas, prestar uno de los libros, mostrar por pantalla 
 los datos almacenados en el array y mostrar por pantalla cuántas hay prestadas y cuantas hay anteriores a 1990.*/
 		
-		boolean prestado;
-		String nombre, colorPortada, asunto;
-		int publishYear,tam=4,anio;
+		int anio;
 		Publicacion p1,p2,p3,p4;
 		p1 = new Libro("Hobbit",1999,true,"negro");
 		p2 = new Libro("Señor de los anillos",2003,false,"negro");
@@ -28,15 +26,22 @@ los datos almacenados en el array y mostrar por pantalla cuántas hay prestadas 
 		//B
 		System.out.println("Escriba un año:");
 		anio=Leer.datoInt();
+		
 		if(p1.publicacionesAnteriores(arrayPublicaciones, anio)[0] == null) {
 			System.out.println("No existen publicaciones anteriores a esta fecha.");
 		}else {
-			for(int i=0;p1.publicacionesAnteriores(arrayPublicaciones, anio)[i] != null && i<p1.publicacionesAnteriores(arrayPublicaciones,anio).length;i++) {
+			for(int i=0;p1.publicacionesAnteriores(arrayPublicaciones,anio)[i] != null && i<p1.publicacionesAnteriores(arrayPublicaciones,anio).length;i++) {
 				System.out.println(p1.publicacionesAnteriores(arrayPublicaciones, anio)[i]);
 			}
 		}
 		
 		//C
+		System.out.println();
+		System.out.println("Se mostarán todas las publicaciones del programa:");
+		p1.mostrarPublicaciones(arrayPublicaciones);
+		System.out.println();
+		System.out.println("De estas, están prestadas:");
+		p1.mostrarPrestadas(arrayPublicaciones);
 		
 		
 	}

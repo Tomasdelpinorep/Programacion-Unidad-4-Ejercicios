@@ -61,4 +61,17 @@ public class Publicacion implements IPublicacion{
 		}
 		return publicacionesAnteriores;
 	}
+	
+	public void mostrarPublicaciones(Publicacion [] arrayPublicaciones) {
+		for(int i=0;i<arrayPublicaciones.length;i++) {
+			if(arrayPublicaciones[i] != null)
+				System.out.println(arrayPublicaciones[i]);		}
+	}
+	
+	public void mostrarPrestadas(Publicacion [] arrayPublicaciones) {
+		for(int i=0;i<arrayPublicaciones.length;i++) {
+			if(arrayPublicaciones[i]!=null && arrayPublicaciones[i].isPrestado())
+				System.out.println(arrayPublicaciones[i]);
+		}
+	}
 }

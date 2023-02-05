@@ -19,8 +19,11 @@ public class Libro extends Publicacion{
 
 	@Override
 	public String toString() {
-		return "Libro [colorPortada=" + colorPortada + "]";
+		return "Libro [colorPortada=" + colorPortada + ", getNombre()=" + getNombre() + ", getPublishYear()="
+				+ getPublishYear() + "]";
 	}
+
+	
 
 	
 }
