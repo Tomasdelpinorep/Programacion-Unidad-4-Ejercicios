@@ -4,11 +4,9 @@ public class Vendedor extends Empleado{
 	
 	private float cantVentas,incentivo;
 	
-	public Vendedor(String nombre, String apellidos, float sueldoBase, int numEmpleado, float cantVentas,
-			float incentivo) {
+	public Vendedor(String nombre, String apellidos, float sueldoBase, int numEmpleado, float cantVentas) {
 		super(nombre, apellidos, sueldoBase, numEmpleado);
 		this.cantVentas = cantVentas;
-		this.incentivo = incentivo;
 	}
 
 	public float getCantVentas() {
@@ -29,7 +27,8 @@ public class Vendedor extends Empleado{
 
 	@Override
 	public String toString() {
-		return "Vendedor [cantVentas=" + cantVentas + ", incentivo=" + incentivo + "]";
+		return "Vendedor [cantVentas=" + cantVentas + ", incentivo=" + incentivo + ", toString()=" + super.toString()
+				+ "]";
 	}
 
 	@Override

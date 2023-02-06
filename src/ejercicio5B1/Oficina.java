@@ -27,4 +27,11 @@ public class Oficina {
 	public float calcularSueldo(Empleado e) {
 		return e.calcularSueldo();
 	}
+	
+	public void imprimirEmpleados() {
+		for(int i=0;i<listaEmpleados.length && listaEmpleados[i]!= null; i++) {
+			System.out.println((i+1)+". "+listaEmpleados[i]+".");
+		}
+		System.out.println("0. Salir del programa.");
+	}
 }
