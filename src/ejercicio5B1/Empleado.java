@@ -1,6 +1,6 @@
 package ejercicio5B1;
 
-public abstract class Empleado {
+public class Empleado {
  //nombre, apellidos, sueldo base y nº de Empleado.
 	private String nombre,apellidos;
 	private float sueldoBase;
@@ -46,5 +46,7 @@ public abstract class Empleado {
 				+ ", numEmpleado=" + numEmpleado + "]";
 	}
 	
-	public abstract float calcularSueldo();
+	public float calcularSueldo() {
+		return getSueldoBase();
+	}
 }

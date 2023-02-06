@@ -4,8 +4,9 @@ public class Gerente extends Empleado{
 
 	private float impuestos;
 	
-	public Gerente(String nombre, String apellidos, float sueldoBase, int numEmpleado) {
+	public Gerente(String nombre, String apellidos, float sueldoBase, int numEmpleado, float impuestos) {
 		super(nombre, apellidos, sueldoBase, numEmpleado);
+		this.impuestos=impuestos;
 	}
 
 	public float getImpuestos() {
@@ -23,7 +24,6 @@ public class Gerente extends Empleado{
 
 	@Override
 	public float calcularSueldo() {
-		// TODO Auto-generated method stub
-		return 0;
+		return super.getSueldoBase()*(1-(impuestos/100));
 	}
 }

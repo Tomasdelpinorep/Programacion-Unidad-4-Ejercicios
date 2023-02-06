@@ -28,10 +28,30 @@ public class Oficina {
 		return e.calcularSueldo();
 	}
 	
+	public float calcularTotal() {
+		float total=0;
+		
+		for(int i=0;i<listaEmpleados.length && listaEmpleados[i] != null ;i++) {
+			total+=listaEmpleados[i].calcularSueldo();
+		}
+		return total;
+	}
+	
 	public void imprimirEmpleados() {
 		for(int i=0;i<listaEmpleados.length && listaEmpleados[i]!= null; i++) {
 			System.out.println((i+1)+". "+listaEmpleados[i]+".");
 		}
 		System.out.println("0. Salir del programa.");
 	}
+	
+	public void imprimirFelicitaciones() {
+		Vendedor aux;
+		for(int i=0;i<listaEmpleados.length;i++ ) {
+			if(listaEmpleados[i] instanceof Vendedor) {
+				aux = (Vendedor)listaEmpleados[i]; 
+				aux.imprimirFelicidaciones();
+			}
+		}
+	}
+	
 }
