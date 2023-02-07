@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Oficina {
 
+	private float dineroGanado,dineroPerdido;
 	private Cuenta [] cuentas;
 
 	public Oficina(Cuenta[] cuentas) {
@@ -17,6 +18,22 @@ public class Oficina {
 
 	public void setCuentas(Cuenta[] cuentas) {
 		this.cuentas = cuentas;
+	}
+	
+	public float getDineroGanado() {
+		return dineroGanado;
+	}
+
+	public void setDineroGanado(float dineroGanado) {
+		this.dineroGanado = dineroGanado;
+	}
+
+	public float getDineroPerdido() {
+		return dineroPerdido;
+	}
+
+	public void setDineroPerdido(float dineroPerdido) {
+		this.dineroPerdido = dineroPerdido;
 	}
 
 	@Override
@@ -33,8 +50,21 @@ public class Oficina {
 		return total;
 	}
 	
-	public float getCuotaTotal() {
-		return 
+	public void ingresar(float cantidad, int opcion) {
+		float incentivoJoven =1f;
+		
+		cuentas[opcion].ingresar(cantidad);
+		if(cuentas[opcion] instanceof CuentaJoven)
+			dineroPerdido+=incentivoJoven;
+	}
+	
+	public void retirar(float cantidad, int opcion) {
+		float cuotaEmpresa = 1f;
+		
+		cuentas[opcion].retirar(cantidad);
+		if(cuentas[opcion] instanceof CuentaEmpresa)
+			dineroGanado+=cuotaEmpresa;
+		
 	}
 	
 	public void imprimirCuentas() {

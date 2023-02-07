@@ -1,7 +1,7 @@
 package ejercicio6B1;
 
 public class CuentaEmpresa extends Cuenta{
-
+	
 	public CuentaEmpresa(float balance) {
 		super(balance);
 	}
