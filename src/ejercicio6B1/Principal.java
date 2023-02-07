@@ -21,25 +21,34 @@ public class Principal {
 		
 		System.out.println("Bienvenido al programa! ¿Qué cuenta desea elegir?");
 		o.imprimirCuentas();
-		opcion=Leer.datoInt();
-		o.imprimirEleccion(opcion-1);
+		opcion=Leer.datoInt()-1;
+		o.imprimirEleccion(opcion);
 		
-		System.out.println("¿Desea ingresar (1) o retirar (2) dinero?");
+		System.out.println("¿Desea ingresar (1) o retirar (2) dinero? | 0. Salir del programa");
 		accion=Leer.datoInt();
 		
 		switch(accion) {
+		case 0:
+			System.out.println("Pasemos a los demás métodos:");
+			System.out.println("******************************************");
+			System.out.println();
+			break;
+			
 		case 1:
 			System.out.println("Indique la cantidad que desea ingresar:");
 			cantidad=Leer.datoFloat();
-			o.ingresar(opcion-1,cantidad);
+			cuentas[opcion].ingresar(cantidad);
 			break;
 			
 		case 2:
 			System.out.println("Indique la cantidad que desea retirar:");
 			cantidad=Leer.datoFloat();
-			o.retirar(cantidad);
+			cuentas[opcion].retirar(cantidad);
 			break;
 		}
+		
+		System.out.printf("Esta oficina en este momento tiene %.2f€ \n",o.calcularTotal());
+		System.out.printf("En total se han recaudado %.2f€ \n",);
 
 	}
 

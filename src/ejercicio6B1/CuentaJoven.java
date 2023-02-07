@@ -12,15 +12,15 @@ public class CuentaJoven extends Cuenta{
 	}
 
 	@Override
-	public float ingresar(int cantidad) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void ingresar(float cantidad) {
+		float incentivo =1f;
+		
+		super.ingresar(cantidad + incentivo);
 	}
 
 	@Override
-	public float retirar(int cantidad) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void retirar(float cantidad) {
+		super.retirar(cantidad);
 	}
 
 	

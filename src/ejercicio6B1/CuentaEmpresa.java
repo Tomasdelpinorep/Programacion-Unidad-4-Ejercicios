@@ -12,16 +12,15 @@ public class CuentaEmpresa extends Cuenta{
 	}
 
 	@Override
-	public float ingresar(int cantidad) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void ingresar(float cantidad) {
+		super.ingresar(cantidad);
 	}
 
 	@Override
-	public float retirar(int cantidad) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void retirar(float cantidad) {
+		float cuota = 1f;
+		
+		super.retirar(cantidad + cuota);
 	}
-	
 	
 }

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Oficina {
 
-	Cuenta [] cuentas;
+	private Cuenta [] cuentas;
 
 	public Oficina(Cuenta[] cuentas) {
 		super();
@@ -24,12 +24,17 @@ public class Oficina {
 		return "Oficina [cuentas=" + Arrays.toString(cuentas) + "]";
 	}
 	
-	public float ingresar(int opcion,float cantidad) {
-		return cuentas[opcion].ingresar(cantidad);
+	public float calcularTotal() {
+		float total=0;
+		
+		for(int i=0;i<cuentas.length && cuentas[i] != null;i++) {
+			total+=cuentas[i].getBalance();
+		}
+		return total;
 	}
 	
-	public float retirar(int opcion,float cantidad) {
-		return cuentas[opcion].retirar(cantidad);
+	public float getCuotaTotal() {
+		return 
 	}
 	
 	public void imprimirCuentas() {

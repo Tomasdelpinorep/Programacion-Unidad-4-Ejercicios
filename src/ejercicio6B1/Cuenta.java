@@ -1,6 +1,8 @@
 package ejercicio6B1;
 
-public abstract class Cuenta {
+import utilidades.Leer;
+
+public class Cuenta {
 
 	private float balance;
 
@@ -22,7 +24,20 @@ public abstract class Cuenta {
 		return "Cuenta [balance=" + balance + "]";
 	}
 	
-	public abstract float ingresar(int cantidad);
+	public void ingresar(float cantidad) {
+		setBalance(getBalance()+cantidad);
+		System.out.printf("Su nuevo balance es de %.2f€ \n",getBalance());
+	}
 	
-	public abstract float retirar(int cantidad);
+	public void retirar(float cantidad) {
+		if(cantidad > getBalance()) {
+			System.out.println("Error. No puede retirar más dinero del disponible en la cuenta.");
+			System.out.println("Por favor indique una cantidad permitida:");
+			cantidad=Leer.datoFloat();
+			retirar(cantidad);
+		}else {
+			setBalance(getBalance()-cantidad);
+			System.out.printf("Su nuevo balance es de %.2f€ \n",getBalance());
+		}
+	}
 }

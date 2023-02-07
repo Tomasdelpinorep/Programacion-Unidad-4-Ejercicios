@@ -33,15 +33,16 @@ public class CuentaCorriente extends Cuenta{
 	}
 
 	@Override
-	public float ingresar(int cantidad) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void ingresar(float cantidad) {
+		int sumaPuntos=10;
+		
+		super.ingresar(cantidad);
+		puntos+=sumaPuntos;
 	}
 
 	@Override
-	public float retirar(int cantidad) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void retirar(float cantidad) {
+		super.ingresar(cantidad);
 	}
 	
 	
