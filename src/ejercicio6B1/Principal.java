@@ -24,12 +24,12 @@ public class Principal {
 		opcion = Leer.datoInt() - 1;
 		o.imprimirEleccion(opcion);
 
-		System.out.println("1. Ingresar dinero | 2. Retirar dinero | 3. Cambiar de cuenta"
-				+ "| 4. Consultar el total de € en la oficina | 5. Consultar el dinero ganado "
-				+ "| 6. Consultar el dinero perdido | 0. Salir del programa");
-		accion = Leer.datoInt();
-
 		do {
+			System.out.println("1. Ingresar dinero | 2. Retirar dinero | 3. Cambiar de cuenta"
+					+ "| 4. Consultar el total de € en la oficina | 5. Consultar el dinero ganado "
+					+ "| 6. Consultar el dinero perdido | 0. Salir del programa");
+			accion = Leer.datoInt();
+			
 			switch (accion) {
 			case 0:
 				System.out.println("Gracias por utilizar el programa.");
@@ -48,6 +48,10 @@ public class Principal {
 				break;
 
 			case 3: // gotta figure this one out
+				System.out.println("Indique la cuenta que desea elegir:");
+				o.imprimirCuentas();
+				opcion=Leer.datoInt()-1;
+				o.imprimirEleccion(opcion);
 				break;
 
 			case 4:
@@ -62,7 +66,7 @@ public class Principal {
 				System.out.printf("Se han usado para incentivos %.2f€ \n", o.getDineroPerdido());
 				break;
 			}
-		} while (opcion != 0);
+		} while (accion != 0);
 
 	}
 

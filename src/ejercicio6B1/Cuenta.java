@@ -40,4 +40,7 @@ public class Cuenta {
 			System.out.printf("Su nuevo balance es de %.2f€ \n",getBalance());
 		}
 	}
+	
+	//crea un atributo incentivoJoven y su getter y setter, después en ingresar dentro de cuenta joven seteas
+	// ese atributo cada vez que ingrese
 }
