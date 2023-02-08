@@ -33,16 +33,16 @@ public class CuentaCorriente extends Cuenta{
 	}
 
 	@Override
-	public void ingresar(float cantidad) {
+	public void ingresar(float cantidad, Oficina o) {
 		int sumaPuntos=10;
 		
-		super.ingresar(cantidad);
+		super.ingresar(cantidad,o);
 		puntos+=sumaPuntos;
 	}
 
 	@Override
-	public void retirar(float cantidad) {
-		super.ingresar(cantidad);
+	public void retirar(float cantidad, Oficina o) {
+		super.ingresar(cantidad, o);
 	}
 	
 	

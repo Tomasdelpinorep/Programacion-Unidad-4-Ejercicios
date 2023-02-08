@@ -12,15 +12,16 @@ public class CuentaJoven extends Cuenta{
 	}
 
 	@Override
-	public void ingresar(float cantidad) {
+	public void ingresar(float cantidad, Oficina o) {
 		float incentivo =1f;
 		
-		super.ingresar(cantidad + incentivo);
+		super.ingresar(cantidad + incentivo,o);
+		o.setDineroPerdido(o.getDineroPerdido()+incentivo);
 	}
 
 	@Override
-	public void retirar(float cantidad) {
-		super.retirar(cantidad);
+	public void retirar(float cantidad,Oficina o) {
+		super.retirar(cantidad,o);
 	}
 
 	

@@ -12,15 +12,16 @@ public class CuentaEmpresa extends Cuenta{
 	}
 
 	@Override
-	public void ingresar(float cantidad) {
-		super.ingresar(cantidad);
+	public void ingresar(float cantidad, Oficina o) {
+		super.ingresar(cantidad,o);
 	}
 
 	@Override
-	public void retirar(float cantidad) {
+	public void retirar(float cantidad, Oficina o) {
 		float cuota = 1f;
 		
-		super.retirar(cantidad + cuota);
+		super.retirar(cantidad + cuota,o);
+		o.setDineroGanado(o.getDineroGanado()+cuota);
 	}
 	
 }

@@ -24,17 +24,17 @@ public class Cuenta {
 		return "Cuenta [balance=" + balance + "]";
 	}
 	
-	public void ingresar(float cantidad) {
+	public void ingresar(float cantidad, Oficina o) {
 		setBalance(getBalance()+cantidad);
 		System.out.printf("Su nuevo balance es de %.2f€ \n",getBalance());
 	}
 	
-	public void retirar(float cantidad) {
+	public void retirar(float cantidad, Oficina o) {
 		if(cantidad > getBalance()) {
 			System.out.println("Error. No puede retirar más dinero del disponible en la cuenta.");
 			System.out.println("Por favor indique una cantidad permitida:");
 			cantidad=Leer.datoFloat();
-			retirar(cantidad);
+			retirar(cantidad,o);
 		}else {
 			setBalance(getBalance()-cantidad);
 			System.out.printf("Su nuevo balance es de %.2f€ \n",getBalance());
