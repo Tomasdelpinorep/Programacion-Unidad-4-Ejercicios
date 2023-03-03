@@ -1,54 +1,78 @@
 package ejercicio4B1;
 
-import java.util.Arrays;
+import java.util.Map;
+import java.util.Random;
 
 public class Venta {
 
-	private LineaDeVenta [] ticket;
+	private Map<Integer, Producto> lista;
 
-	public Venta(LineaDeVenta[] ticket) {
+	public Venta(Map<Integer, Producto> lista) {
 		super();
-		this.ticket = ticket;
+		this.lista = lista;
 	}
 
-	public LineaDeVenta[] getTicket() {
-		return ticket;
+	public Map<Integer, Producto> getlista() {
+		return lista;
 	}
 
-	public void setTicket(LineaDeVenta[] ticket) {
-		this.ticket = ticket;
+	public void setlista(Map<Integer, Producto> lista) {
+		this.lista = lista;
 	}
 
-	@Override
-	public String toString() {
-		return "Venta [ticket=" + Arrays.toString(ticket) + "]";
-	}
-	
-	public void imprimirTicket(LineaDeVenta [] lineaTicket) {
-		Alimentacion aux; //Objeto auxiliar
-		
+	public void imprimirTicket() {
+
+		int cont = 1, cantidad;
+
 		System.out.println("***************************************");
-		System.out.println("Supermercados DonBosco SSL");
+		System.out.println("Supermercados DonBosco SL");
 		System.out.println("***************************************");
 		System.out.println("PRODUCTO \t\t CANTIDAD \t\t PRECIO \t\t DESCUENTO \t\t TOTAL");
-		for(int i=0;i<lineaTicket.length;i++) {
-			
-			if(lineaTicket[i].getP() instanceof Alimentacion) {
-				aux = (Alimentacion)lineaTicket[i].getP(); //ESTO ES IMPORTANTE, HE CONVERTIDO UN TIPO PRODUCTO EN UNO TIPO ALIMENTACION POR SI QUIERO LLAMAR A LOS MÉTODOS EXLCUSIVOS DE ALIMENTACION
-				
-				System.out.println(aux.getNombre()+" \t\t "+lineaTicket[i].getCantidad()+ "\t\t "
-						+aux.calcularPrecio()+" \t\t "+ aux.calcularDescuento() + " \t\t " + lineaTicket[i].calcularPrecioProductoTotal(aux));
-				
-				aux.imprimirAviso(); //Era necesario el aux para llamar este método exclusivo a Alimentacion
-				
-			}else if(lineaTicket[i].getP() instanceof Ropa) {
-				System.out.println(lineaTicket[i].getP().getNombre()+" \t\t "+lineaTicket[i].getCantidad()+ "\t\t "
-						+lineaTicket[i].getP().calcularPrecio() +" \t\t "+lineaTicket[i].getP().calcularDescuento()+ " \t\t " + lineaTicket[i].calcularPrecioProductoTotal(lineaTicket[i].getP()));
-				
-			}else if(lineaTicket[i].getP() instanceof Electronica) {
-				System.out.println(lineaTicket[i].getP().getNombre()+" \t\t "+lineaTicket[i].getCantidad()+ "\t\t "
-						+lineaTicket[i].getP().calcularPrecio() +" \t\t "+lineaTicket[i].getP().calcularDescuento()+ " \t\t "+lineaTicket[i].calcularPrecioProductoTotal(lineaTicket[i].getP()));
+
+		for (Producto p : lista.values()) {
+			cantidad = generarCantRandom();
+
+			if (p instanceof Alimentacion) {
+				Alimentacion aux;
+				aux = (Alimentacion) p;
+				if (aux.comprobarCaducidad()) {
+					System.out
+							.println(cont + ". " + p.getNombre() + " \t " + cantidad + " \t\t " + p.getPrecioUnitario()
+									+ " \t\t " + aux.calcularDescuento() + " \t\t " + cantidad * p.getPrecioUnitario());
+					cont++;
+				} else {
+					System.out
+					.println(cont + ". " + p.getNombre() + " \t " + cantidad + " \t\t " + p.getPrecioUnitario()
+							+ " \t\t " + "0" + " \t\t " + cantidad * p.getPrecioUnitario());
+				}
+
+			} else if (p instanceof Ropa) {
+				Ropa aux = (Ropa) p;
+				aux = (Ropa) p;
+				System.out.println(cont + ". " + p.getNombre() + " \t " + cantidad + " \t\t " + p.getPrecioUnitario()
+						+ " \t\t " + aux.getRebaja() + " \t\t " + cantidad * p.getPrecioUnitario());
+				cont++;
+
+			} else {
+				System.out.println(cont + ". " + p.getNombre() + " \t " + cantidad + " \t\t " + p.getPrecioUnitario()
+						+ " \t\t " + "N/A \t\t " + cantidad * p.getPrecioUnitario());
+				cont++;
 			}
 		}
+
+		System.out.println();
+		System.out.println("************************************");
+	}
+
+	public static int generarCantRandom() {
+		int cantidad;
+		Random rnd = new Random(System.nanoTime());
+
+		cantidad = rnd.nextInt(10) + 1;
+		return cantidad;
+	}
+	
+	public Producto findBKey(int clave) {
+		return lista.get(clave);
 	}
 }

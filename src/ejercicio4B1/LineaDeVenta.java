@@ -1,6 +1,7 @@
 package ejercicio4B1;
 
 public class LineaDeVenta {
+
 	private Producto p;
 	private int cantidad;
 	
@@ -9,6 +10,7 @@ public class LineaDeVenta {
 		this.p = p;
 		this.cantidad = cantidad;
 	}
+	
 	public Producto getP() {
 		return p;
 	}
@@ -21,12 +23,10 @@ public class LineaDeVenta {
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
+	
 	@Override
 	public String toString() {
 		return "LineaDeVenta [p=" + p + ", cantidad=" + cantidad + "]";
 	}
 	
-	public float calcularPrecioProductoTotal(Producto p) {
-		return cantidad * p.calcularPrecio();
-	}
 }

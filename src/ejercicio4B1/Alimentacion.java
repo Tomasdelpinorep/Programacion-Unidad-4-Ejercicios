@@ -16,11 +16,13 @@ public class Alimentacion extends Producto{
 	public void setDiasParaCaducar(int diasParaCaducar) {
 		this.diasParaCaducar = diasParaCaducar;
 	}
+	
 	@Override
 	public String toString() {
-		return "Alimentacion [diasParaCaducar=" + diasParaCaducar + "]";
+		return "Alimentacion [diasParaCaducar=" + diasParaCaducar + ", descontado=" + descontado + ", toString()="
+				+ super.toString() + "]";
 	}
-	
+
 	public boolean comprobarCaducidad() {
 		if(diasParaCaducar <= 2) { 
 			descontado = true;
