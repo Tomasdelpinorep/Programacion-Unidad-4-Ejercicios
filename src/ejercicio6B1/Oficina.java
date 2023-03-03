@@ -50,22 +50,6 @@ public class Oficina {
 		return total;
 	}
 	
-	public void ingresar(float cantidad, int opcion) {
-		float incentivoJoven =1f;
-		
-		cuentas[opcion].ingresar(cantidad);
-		if(cuentas[opcion] instanceof CuentaJoven)
-			dineroPerdido+=incentivoJoven;
-	}
-	
-	public void retirar(float cantidad, int opcion) {
-		float cuotaEmpresa = 1f;
-		
-		cuentas[opcion].retirar(cantidad);
-		if(cuentas[opcion] instanceof CuentaEmpresa)
-			dineroGanado+=cuotaEmpresa;
-		
-	}
 	
 	public void imprimirCuentas() {
 		for(int i=0;i<cuentas.length && cuentas[i] != null ;i++) {

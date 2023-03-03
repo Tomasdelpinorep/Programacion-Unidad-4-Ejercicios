@@ -38,16 +38,16 @@ public class Principal {
 			case 1:
 				System.out.println("Indique la cantidad que desea ingresar:");
 				cantidad = Leer.datoFloat();
-				o.ingresar(cantidad, opcion);
+				cuentas[opcion].ingresar(cantidad,o);
 				break;
 
 			case 2:
 				System.out.println("Indique la cantidad que desea retirar:");
 				cantidad = Leer.datoFloat();
-				o.retirar(cantidad, opcion);
+				cuentas[opcion].retirar(cantidad,o);
 				break;
 
-			case 3: // gotta figure this one out
+			case 3: 
 				System.out.println("Indique la cuenta que desea elegir:");
 				o.imprimirCuentas();
 				opcion=Leer.datoInt()-1;
