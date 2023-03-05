@@ -1,5 +1,8 @@
 package ejercicio4B1;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -74,5 +77,38 @@ public class Venta {
 	
 	public Producto findBKey(int clave) {
 		return lista.get(clave);
+	}
+	
+	public void imprimirProductos(List<Producto> ordenadoNombre) {
+		for(Producto p : ordenadoNombre) {
+			System.out.println(p.getNombre());
+		}
+		
+		System.out.println();
+	}
+	
+	public List<Producto> ordenarPorNombre() {
+		List<Producto> ordenadoNombre = new ArrayList<>(lista.values());
+		Collections.sort(ordenadoNombre, new compararPorNombre());
+		return ordenadoNombre;
+	}
+	
+	public List<Producto> ordenarNatural(){
+		List<Producto> ordenadoPrecio = new ArrayList<>(lista.values());
+		Collections.sort(ordenadoPrecio);
+		return ordenadoPrecio;
+	}
+	
+	public void imprimirMapProductos() {
+		for(Map.Entry<Integer,Producto> entry : lista.entrySet()) {
+			Integer key = entry.getKey();
+			Producto value = entry.getValue();
+			System.out.println(key +". " + value);
+		}
+		System.out.println();
+	}
+	
+	public void cambiarPrecio(Integer clave, float nuevoPrecio) {
+		lista.get(clave).setPrecioUnitario(nuevoPrecio);
 	}
 }

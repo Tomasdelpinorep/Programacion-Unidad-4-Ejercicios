@@ -31,4 +31,14 @@ public class Ropa extends Producto{
 		return rebaja;
 	}
 
+	@Override
+	public int compareTo(Producto p) {
+		if(this.getPrecioUnitario() > p.getPrecioUnitario()) {
+			return -1;
+		}else if (this.getPrecioUnitario() < p.getPrecioUnitario()) {
+			return 1;
+		}
+		return 0;
+	}
+
 }
